@@ -1,0 +1,164 @@
+<!-- 1. change news - next prev btn -->
+ <!-- import React, { Component } from "react";
+import NewsItem from "./NewsItem";
+
+export class News extends Component {
+  articles = [
+    {
+    {
+      source: {
+        id: "al-jazeera-english",
+        name: "Al Jazeera English",
+      },
+      author: "Abid Hussain",
+      title:
+        "Pakistan army chief admits military’s meddling in politics - Al Jazeera English",
+      description:
+        "But General Bajwa reveals that the country’s most powerful institution has decided to stay away from politics.",
+      url: "https://www.aljazeera.com/news/2022/11/23/pakistans-army-chief-vows-to-keep-military-out-of-politics",
+      urlToImage:
+        "https://www.aljazeera.com/wp-content/uploads/2022/11/AP22211675895142.jpg?resize=1920%2C1440",
+      publishedAt: "2022-11-23T20:36:42Z",
+      content:
+        "Islamabad, Pakistan Pakistans outgoing army chief, General Qamar Javed Bajwa, says the military has unlawfully meddled in politics for decades and it will no longer do so.\r\nIn his last address as arm… [+2301 chars]",
+    },
+    {
+     -->
+  ];
+  <!-- constructor() {
+    super();
+    console.log("console me agar 3 bar ye print hua mtlab yha 3 cards me hai."); -->
+    this.state = { articles: this.articles, loading: false, page: 1 };
+  }
+
+  async componentDidMount() {
+    <!-- try {
+      let url = -->
+         "https://newsapi.org/v2/top-headlines?country=in&apiKey=7a49bfdf67074403b672e06c31ba2dad&pagesize=20";
+  <!-- let data = await fetch(url);
+      let parsedData = await data.json(); 
+
+      console.log(parsedData + " hoooooo"); -->
+      this.setState({
+        <!-- articles: parsedData.articles, -->
+        totalresult: parsedData.totalResults ,
+      });
+    <!-- } catch (e) {
+      console.log("something got wrong");
+    }
+  }  -->
+
+  handlePrevClick = async () => {
+    let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=7a49bfdf67074403b672e06c31ba2dad&page=${
+      this.state.page - 1
+    }&pagesize=20`;
+    let data = await fetch(url);
+    let parsedData = await data.json();
+
+    console.log(parsedData + " hoooooo");
+
+    this.setState({
+      page: this.state.page - 1,
+      articles: parsedData.articles,
+      
+    });
+  };
+
+  handleNextClick = async () => {
+    if (this.state.page + 1 > Math.ceil(this.state.totalresult / 20)) {
+    } 
+    else {
+      let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=7a49bfdf67074403b672e06c31ba2dad&page=${
+        this.state.page + 1
+      }&pagesize=20`;
+      <!-- let data = await fetch(url);
+      let parsedData = await data.json();
+
+      console.log(parsedData + " hoooooo"); -->
+
+      this.setState({
+        page: this.state.page + 1,
+        articles: parsedData.articles,
+       
+      });
+    }
+  };
+
+  <!-- render() {
+    return (
+      <div className="container my-3">
+        <h2>NewsMonkey-Top headlineS</h2>
+        <div className="row">
+          {this.state.articles.map((element) => {
+            console.log(element);
+            return (
+              <div className="col-md-4" key={element.url}>
+                <NewsItem
+                  title={element.title ? element.title.slice(0, 45) : ""} -->
+                  <!-- description={
+                    element.description ? element.description.slice(0, 80) : ""
+                  }
+                  imageUrl={element.urlToImage}
+                  NewsUrl={element.url}
+                />
+              </div> -->
+            <!-- );
+          })}
+        </div> --> 
+        <div className="d-flex justify-content-between">
+          <button
+            disabled={this.state.page <= 1}
+            type="button"
+            onClick={this.handlePrevClick}
+            className="btn btn-primary"
+          >
+            {" "}
+            &larr; Previous
+          </button>
+          <button
+            type="button"
+            onClick={this.handleNextClick}
+            className="btn btn-primary"
+          >
+            Next &rarr;{" "}
+          </button>
+        </div>
+      <!-- </div>
+    );
+  }
+} -->
+
+<!-- export default News; -->
+
+
+<!-- 
+
+import React, { Component } from 'react'
+
+export class NewsItem extends Component {
+  static propTypes = {}
+
+  render() {
+     let {title,description,imageUrl,NewsUrl} = this.props;
+    return (
+      <div className='my-3'>
+      <div className="card" style={{width: "18rem"}}>
+  <img src={!imageUrl?"https://feeds.abplive.com/onecms/images/uploaded-images/2022/11/24/6547ff94c98f4dd7535fef7798d7c0031669301536984177_original.jpg?impolicy=abp_cdn&imwidth=1200&imheight=628":imageUrl} className="card-img-top" alt="..."/>
+  <div className="card-body">
+    <h5 className="card-title">{title}...</h5>
+    <p className="card-text">{description}...</p>
+    <a rel='noreferrer' href={NewsUrl} className="btn btn-sm btn-warning" target="_blank">Read more</a>
+  </div>
+</div>
+      </div>
+    )
+  } 
+}
+
+export default NewsItem -->
+
+<!-- sikha 
+  esme next and prev buton lagana, yha disable function jb fir se try kr rha tha to ,Math.ceil(totalresult/this.state.pageisze) se devide karne pr bhi 
+  disable nhi ho rha tha yha aur ek chiz sikhne wali hai hum aage jakr update ka use karne wale me hai jisme this.state.page ko hi next and prev me +1 and -1 karna hoga and enme jo baki kaam hai vha 
+  update ko call karenge update me hi vobaki code rahenge. koi bhi nya state bnate samay state ko constructor me add kare and buttons ko ek flex box ke ander rakha gya hai esliye dono ends pr hi.
+-->

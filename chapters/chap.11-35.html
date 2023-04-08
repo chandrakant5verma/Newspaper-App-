@@ -1,0 +1,272 @@
+<!-- news  -->
+<!-- import React, { Component } from "react";
+import NewsItem from "./NewsItem";
+import Spinner from "./Spinner";
+import PropTypes from "prop-types"; -->
+import InfiniteScroll from "react-infinite-scroll-component";
+
+<!-- export class News extends Component {
+  static defaultProps = {
+    country: "in",
+    pagesize: 5,
+  };
+  static propTypes = {
+    name: PropTypes.string,
+    pagesize: PropTypes.number,
+    category: PropTypes.string,
+  }; -->
+  <!-- articles = [
+    {
+    {
+      source: {
+        id: null,
+        name: "The Times of Israel",
+      },
+      author: null,
+      title:
+        "Teen terror victim Aryeh Schupak mourned as ‘fighter’ after Jerusalem bombing - The Times of Israel",
+      description:
+        "Schupak, 16, decided to go to class in morning despite feeling sick, says yeshiva head; father: 'Appreciate every minute with the child and with the family'",
+      url: "https://www.timesofisrael.com/teen-terror-victim-aryeh-schupak-mourned-as-fighter-after-jerusalem-bombing/",
+      urlToImage:
+        "https://static.timesofisrael.com/www/uploads/2022/11/F221123YS170-e1669218736926-1024x640.jpg",
+      publishedAt: "2022-11-23T18:59:17Z",
+      content:
+        "Family, friends and others packed the Givat Shaul cemetery in Jerusalem on Wednesday afternoon to mourn 16-year-old Aryeh Schupak, killed hours earlier in a bombing at a bus stop just a short distanc… [+5979 chars]",
+    },
+    {
+      source: {
+        id: "fox-sports",
+        name: "Fox Sports",
+      },
+      author: null,
+      title:
+        "World Cup 2022 top plays: Belgium takes 1-0 lead over Canada - FOX Sports",
+      description:
+        "Belgium is facing Canada - a team that has never won a World Cup game - live on FOX. Here are the top plays!",
+      url: "https://www.foxsports.com/stories/soccer/world-cup-2022-top-plays-belgium-canada",
+      urlToImage:
+        "https://a57.foxsports.com/statics.foxsports.com/www.foxsports.com/content/uploads/2022/11/1408/814/11.22.22_WC-Top-Plays-Group-Stage_Belgium-Canada_16x9.jpg?ve=1&tl=1",
+      publishedAt: "2022-11-23T18:48:58Z",
+      content:
+        "The 2022 FIFA World Cup\r\n continues Wednesday on FOX with Belgium\r\n facing Canada\r\n at Ahmed bin Ali Stadium in Al Rayyan, Qatar and we've got you covered with every must-see moment from start to fin… [+2844 chars]",
+    },
+    {
+      source: {
+        id: "nfl-news",
+        name: "NFL News",
+      },
+      author: "Gregg Rosenthal",
+      title:
+        "Week 12 NFL game picks: Pats hand Vikings second straight loss on Thanksgiving night; Titans > Bengals - NFL.com",
+      description:
+        "Can the Patriots keep the Vikings reeling on Thanksgiving night? Will the Titans exact revenge on the Bengals for last season's playoff loss? Gregg Rosenthal makes his picks for every Week 12 game.",
+      url: "https://www.nfl.com/news/week-12-nfl-game-picks-2022-nfl-season",
+      urlToImage:
+        "https://static.www.nfl.com/image/private/t_editorial_landscape_12_desktop/league/szqakx3kku7suttjxwr4",
+      publishedAt: "2022-11-23T18:31:00Z",
+      content:
+        "<ul><li>WHERE: U.S. Bank Stadium (Minneapolis)</li><li>WHEN: 8:20 p.m. ET | NBC, Telemundo</li><li>MONEYLINE: Patriots: +118 | Vikings: -140</li><li>SPREAD: Patriots +2.5| O/U: 42.5</li></ul>This is … [+584 chars]",
+    },
+    {
+      source: {
+        id: "ars-technica",
+        name: "Ars Technica",
+      },
+      author: "John Timmer",
+      title:
+        "We now know why black hole jets make high-energy radiation - Ars Technica",
+      description:
+        "New data decisively favors shockwave-generated radiation in the jets.",
+      url: "https://arstechnica.com/science/2022/11/new-observatory-figures-out-why-black-holes-jets-are-so-bright/",
+      urlToImage:
+        "https://cdn.arstechnica.net/wp-content/uploads/2022/11/image-3-760x380.jpeg",
+      publishedAt: "2022-11-23T18:12:16Z",
+      content:
+        "Enlarge/ The jets of material ejected from around black holes can be enormous.\r\n3 with 0 posters participating\r\nActive galactic nuclei, powered by the supermassive black holes they contain, are the b… [+3853 chars]",
+    },
+  ];
+  capitalizeFirstlatter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+  constructor(props) {
+    super(props);
+    console.log("console me agar 3 bar ye print hua mtlab yha 3 cards me hai.");
+    this.state = { articles: this.articles, loading: true, page: 1,totalResults : 0};
+    document.title = `${this.capitalizeFirstlatter( 
+      this.props.category
+    )} - NewsMonkey`;
+  } -->
+
+  <!-- async updateNews() {
+    const url = `https://newsapi.org/v2/top-headlines?country=${
+      this.props.country
+    }&category=${
+      this.props.category
+    }&apiKey=7a49bfdf67074403b672e06c31ba2dad&page=${
+      this.state.page + 1
+    }&pagesize=${this.props.pagesize}`;
+    this.setState({ Loading: true });
+    let data = await fetch(url);
+    let parsedData = await data.json();
+
+    console.log(parsedData + " hoooooo");
+    this.setState({
+      articles: parsedData.articles,
+      totalresult: parsedData.totalResults,
+      Loading: false,
+    });
+  } -->
+  <!-- async componentDidMount() {
+    try {
+      let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=7a49bfdf67074403b672e06c31ba2dad&pagesize=${this.props.pagesize}`;
+      this.setState({ Loading: true });
+      let data = await fetch(url);
+      let parsedData = await data.json();
+
+      console.log(parsedData + " hoooooo");
+      this.setState({
+        articles: parsedData.articles,
+        totalresult: parsedData.totalResults,
+        Loading: false,
+      });
+    } catch (e) {
+      console.log("something got wrong");
+    }
+  } -->
+<!-- 
+  handlePrevClick = async () => {
+    // let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=7a49bfdf67074403b672e06c31ba2dad&page=${
+    //   this.state.page - 1
+    // }&pagesize=${this.props.pagesize}`;
+    //  this.setState({Loading:true})
+    // let data = await fetch(url);
+    // let parsedData = await data.json();
+
+    // console.log(parsedData + " hoooooo");
+
+    // this.setState({
+    //   page: this.state.page - 1,
+    //    articles: parsedData.articles,
+    //   Loading:false
+
+    // });
+    this.setState({
+      page: this.state.page - 1,
+    });
+    this.updateNews();
+  };
+
+  handleNextClick = async () => {
+    //  if (this.state.page + 1 > Math.ceil(this.state.totalresult / this.props.pagesize)) {
+    // } else {
+    //   let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=7a49bfdf67074403b672e06c31ba2dad&page=${
+    //     this.state.page + 1
+    //   }&pagesize=${this.props.pagesize}`;
+    //    this.setState({Loading:true});
+    //   let data = await fetch(url);
+    //   let parsedData = await data.json();
+
+    //   console.log(parsedData + " hoooooo");
+
+    //   this.setState({
+    //     page: this.state.page + 1,
+    //     articles: parsedData.articles,
+    //     Loading:false
+
+    //   });
+    // }
+    this.setState({ page: this.state.page + 1 });
+    this.updateNews();
+  }; -->
+
+ fetchMoreData = async () => {
+   
+      this.setState({
+        page: this.state.page+1,
+      });
+      <!-- const url = `https://newsapi.org/v2/top-headlines?country=${
+        this.props.country
+      }&category=${
+        this.props.category
+      }&apiKey=7a49bfdf67074403b672e06c31ba2dad&page=${
+        this.state.page 
+      }&pagesize=${this.props.pagesize}`;
+      
+      let data = await fetch(url);
+      let parsedData = await data.json();
+  
+      console.log(parsedData + " hoooooo"); -->
+      this.setState({
+        articles: this.state.articles.concat(parsedData.articles),
+        totalresult: parsedData.totalResults,
+        
+      });
+    }
+   
+
+  <!-- render() {
+    return ( -->
+      <>
+        <h2 className="text-center">
+          NewsMonkey-Top headlineS On{" "}
+          {this.capitalizeFirstlatter(this.props.category)}
+        </h2>
+        {this.state.Loading && <Spinner />}
+        <InfiniteScroll
+          dataLength={this.state.articles.length}
+          next={this.fetchMoreData}
+          hasMore={this.state.articles.length !== this.state.totalresult}
+          loader={<Spinner/>}  
+        >
+        <div className="container">
+          <!-- <div className="row">
+            {this.state.articles.map((element) => {
+              console.log(element); -->
+              <!-- return (
+                <div className="col-md-4" key={element.url}>
+                  <NewsItem
+                    title={element.title ? element.title.slice(0, 45) : ""}
+                    description={
+                      element.description
+                        ? element.description.slice(0, 80) -->
+                        <!-- : ""
+                    }
+                    imageUrl={element.urlToImage}
+                    NewsUrl={element.url}
+                    author={!element.author ? "unkown" : element.author}
+                    date={element.publishedAt}
+                    source={element.source.name}
+                  />
+                </div>
+              );
+            })} 
+          </div> -->
+          </div>
+        </InfiniteScroll>
+        </>
+    <!-- );
+  }
+}
+
+export default News; -->
+
+
+<!-- spinner -->
+<!-- import React, { Component } from 'react'
+import Loading from './Loading.gif'
+export default class spinner extends Component {
+  render() {
+    return ( -->
+      <div className="text-center my-3">
+      <img className="my-3" src={Loading} alt = "loading"/>
+      <!-- </div>
+    )
+  }
+} -->
+
+<!-- 
+  infinite scroll bar add karne eske documntion se utha laye ki uske liye ek state length and uper content ko infineite scorll ke ander lanapadta hai.
+  ese lgane ke badd next prev karne ki jarurat nhi so jb eske liye function bnate rahe to main kam articles: this.state.articles.concat(parsedData.articles),
+  karna hai.
+-->

@@ -1,0 +1,92 @@
+<!-- 1.changes news -->
+
+import React, { Component } from "react";
+<!-- import NewsItem from "./NewsItem";
+
+export class News extends Component {
+  articles = [
+    {
+         "source": {
+      "id": "the-washington-post",
+      "name": "The Washington Post"
+      },
+      "author": "Jacqueline Alemany, Josh Dawsey, Carol D. Leonnig",
+      "title": "Jan. 6 panel staffers angry at Cheney for focusing so much of report on Trump - The Washington Post",
+      "description": "Fifteen former and current staffers expressed concerns that important findings unrelated to Trump will not become available to the American public.",
+      "url": "https://www.washingtonpost.com/politics/2022/11/23/liz-cheney-jan-6-committee/",
+      "urlToImage": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/HGKEIV7HR57HMUF4SMR5E7O7QM.jpg&w=1440",
+      "publishedAt": "2022-11-24T00:33:59Z",
+      "content": "Comment on this story\r\nSince Rep. Liz Cheney accepted House Speaker Nancy Pelosis offer to serve as the vice chair of the House committee investigating the Jan. 6, 2021, attack on the U.S. Capitol, t… [+12568 chars]"
+      },   
+  ] -->
+  <!-- constructor(){
+    super();
+    console.log("console me agar 3 bar ye print hua mtlab yha 3 cards me hai.")
+    this.state ={ articles:this.articles,
+                  loading : false
+  }
+  } -->
+
+  async componentDidMount(){
+    try{let url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=7a49bfdf67074403b672e06c31ba2dad";
+    let data = await fetch(url);
+    let parsedData = await data.json();
+    
+    console.log(parsedData+" hoooooo");
+    this.setState({articles:parsedData.articles});}
+    catch(e){
+      console.log("something got wrong");
+    }
+  }
+<!-- 
+  render() {
+    return (
+      <div className="container my-3">
+        <h2>NewsMonkey-Top headlineS</h2>
+        <div className="row"> -->
+        {this.state.articles.map((element) =>{
+          console.log(element);
+        return  <div className="col-md-4" key={element.url}>
+            <NewsItem title={element.title?element.title.slice(0,45):""} description = {element.description?element.description.slice(0,80):""} imageUrl = {element.urlToImage} NewsUrl={element.url}/>
+          </div>
+        })}
+        <!-- </div>
+      </div>
+    )
+  }
+} -->
+
+<!-- export default News; -->
+
+
+<!-- 2. changes newsitem -->
+<!-- 
+import React, { Component } from 'react'
+
+export class NewsItem extends Component {
+  static propTypes = {}
+
+  render() { -->
+     <!-- let {title,description,imageUrl,NewsUrl} = this.props; -->
+    <!-- return (
+      <div className='my-3'> -->
+      <div className="card" style={{width: "18rem"}}>
+  <img src={!imageUrl?"https://feeds.abplive.com/onecms/images/uploaded-images/2022/11/24/6547ff94c98f4dd7535fef7798d7c0031669301536984177_original.jpg?impolicy=abp_cdn&imwidth=1200&imheight=628":imageUrl} className="card-img-top" alt="..."/>
+  <!-- <div className="card-body">
+    <h5 className="card-title">{title}...</h5>
+    <p className="card-text">{description}...</p>
+    <a href={NewsUrl} className="btn btn-sm btn-primary" target="_blank">Read more</a>
+  </div>
+</div> -->
+      <!-- </div>
+    )
+  } 
+}
+
+export default NewsItem -->
+
+<!-- Sikha
+  so yha pr hamne api fetch karna sikha pahle url laaye fir data fetch kare fir json se object bnaye 
+  and jaise function class me state and setstate ek saath likhte hai and call karna padta hai yha vaisa nhi haisidha state le and ek jagah set state  jaisa articles ke saath kiya.
+  and yha query bnana sikah.
+-->

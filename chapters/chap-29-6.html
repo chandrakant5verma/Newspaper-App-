@@ -1,0 +1,247 @@
+<!--   -->
+<!-- import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+
+export class Navbar extends Component {
+  static propTypes = {}
+
+  render() {
+    
+    return (
+        <>
+      <div>
+      <nav className="navbar navbar-expand-lg bg-light">
+      <div className="container-fluid">
+        <a className="navbar-brand" href="/">NewsMonky</a>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/about">About</a>
+            </li> 
+          </ul>
+        </div>
+      </div>
+    </nav>
+    </div>
+    </>
+    )
+  }
+}
+
+export default Navbar
+
+<!-- 1.change News 5. spinner activation-->
+<!-- import React, { Component } from "react";
+<!-- import NewsItem from "./NewsItem"; -->
+import Spinner from "./Spinner";
+
+<!-- export class News extends Component {
+  articles = [
+    {
+     
+    {
+     
+    {
+      source: {
+        id: "ars-technica",
+        name: "Ars Technica",
+      }, -->
+      <!-- author: "John Timmer",
+      title:
+        "We now know why black hole jets make high-energy radiation - Ars Technica",
+      description:
+        "New data decisively favors shockwave-generated radiation in the jets.",
+      url: "https://arstechnica.com/science/2022/11/new-observatory-figures-out-why-black-holes-jets-are-so-bright/",
+      urlToImage:
+        "https://cdn.arstechnica.net/wp-content/uploads/2022/11/image-3-760x380.jpeg",
+      publishedAt: "2022-11-23T18:12:16Z",
+      content:
+        "Enlarge/ The jets of material ejected from around black holes can be enormous.\r\n3 with 0 posters participating\r\nActive galactic nuclei, powered by the supermassive black holes they contain, are the b… [+3853 chars]",
+    },
+  ];-->-->
+  <!-- constructor() { 
+    super(); -->
+    this.state = { articles: this.articles, loading: false, page: 1 };
+    <!-- console.log("console me agar 3 bar ye print hua mtlab yha 3 cards me hai.");
+  } 
+
+  <!-- async componentDidMount() {
+    try { -->
+      let url = -->
+         `https://newsapi.org/v2/top-headlines?country=in&apiKey=7a49bfdf67074403b672e06c31ba2dad&pagesize=${this.props.pagesize}`;
+
+        this.setState({Loading:true});
+      <!-- let data = await fetch(url); -->
+      <!-- let parsedData = await data.json();
+
+      console.log(parsedData + " hoooooo");
+      this.setState({
+        articles: parsedData.articles,
+        <!-- totalresult: parsedData.totalResults , -->
+        Loading:false
+      <!-- });
+    } catch (e) {
+      console.log("something got wrong");
+    }
+  } --> -->
+
+  handlePrevClick = async () => {
+    let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=7a49bfdf67074403b672e06c31ba2dad&page=${
+      this.state.page - 1
+    }&pagesize=${this.props.pagesize}`;
+
+     this.setState({Loading:true})
+   <!-- let data = await fetch(url);
+    let parsedData = await data.json();
+
+    console.log(parsedData + " hoooooo");
+
+    this.setState({
+      page: this.state.page - 1, -->
+      <!-- articles: parsedData.articles, -->
+      Loading:false
+       -->
+    <!-- });
+  };
+
+  handleNextClick = async () => { -->
+    if (this.state.page + 1 > Math.ceil(this.state.totalresult / this.props.pagesize)) {
+    } else {
+      let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=7a49bfdf67074403b672e06c31ba2dad&page=${
+        this.state.page + 1
+      }&pagesize=${this.props.pagesize}`;
+
+       this.setState({Loading:true});
+      <!--let data = await fetch(url);
+      let parsedData = await data.json();
+
+      console.log(parsedData + " hoooooo");
+
+      this.setState({
+        page: this.state.page + 1,
+        articles: parsedData.articles,-->
+        Loading:false
+       
+      <!-- }); 
+    }
+  }; -->
+
+  render() {
+    return (
+      <div className="container my-3"> --> -->
+        <h2 className="text-center">NewsMonkey-Top headlineS</h2>
+         {this.state.Loading && <Spinner />}
+        <!-- <div className="row"> -->
+          {!this.state.Loading && this.state.articles.map((element) => {
+            console.log(element);
+          <!--  return (
+              <div className="col-md-4" key={element.url}> -->
+                <!-- <NewsItem
+                  title={element.title ? element.title.slice(0, 45) : ""}
+                  description={
+                    element.description ? element.description.slice(0, 80) : ""
+                  }
+                  imageUrl={element.urlToImage}
+                  NewsUrl={element.url}
+                />
+              </div> --> -->
+            <!-- );
+          })}
+        </div>
+        <div className="d-flex justify-content-between">
+          <button
+            disabled={this.state.page <= 1}
+            type="button"
+            onClick={this.handlePrevClick}
+            className="btn btn-primary"
+          <!-- >
+            {" "}
+            &larr; Previous
+          </button> -->
+          <button
+            type="button"
+            onClick={this.handleNextClick}
+            className="btn btn-primary"
+            disabled = {this.state.page + 1 > Math.ceil(this.state.totalresult / this.props.pagesize)}
+          >
+            <!-- Next &rarr;{" "}
+          </button>
+        </div>
+      </div>
+    );
+  } -->
+}
+
+export default News;
+
+<!--   -->
+
+import React, { Component } from 'react'
+
+export class NewsItem extends Component {
+  static propTypes = {}
+
+  render() {
+     let {title,description,imageUrl,NewsUrl} = this.props;
+    return (
+      <div className='my-3'>
+      <div className="card" style={{width: "18rem"}}>
+  <img src={!imageUrl?"https://feeds.abplive.com/onecms/images/uploaded-images/2022/11/24/6547ff94c98f4dd7535fef7798d7c0031669301536984177_original.jpg?impolicy=abp_cdn&imwidth=1200&imheight=628":imageUrl} className="card-img-top" alt="..."/>
+  <div className="card-body">
+    <h5 className="card-title">{title}...</h5>
+    <p className="card-text">{description}...</p>
+    <a rel='noreferrer' href={NewsUrl} className="btn btn-sm btn-warning" target="_blank">Read more</a>
+  </div>
+</div>
+      </div>
+    )
+  } 
+}
+
+export default NewsItem
+<!-- 3.change app(pagesize) -->
+
+<!-- import './App.css';
+
+import React, { Component } from 'react'
+import Navbar from './component/Navbar';
+import News from './component/News';
+
+export default class App extends Component {
+ 
+  render() {
+    return (
+      <div> -->
+      <Navbar/>
+      <News pagesize = {5}/>
+      <!-- </div>
+    )
+  }
+} -->
+
+<!--4. changes spinner -->
+<!-- pura hi bna hai -->
+import React, { Component } from 'react'
+import Loading from './Loading.gif'
+export default class spinner extends Component {
+  render() {
+    return (
+      <div className="text-center">
+      <img src={Loading} alt = "loading"/>
+      </div>
+    )
+  }
+}
+
+
+<!-- 
+yha props add karna sikha so kahi se jb props la rahe ho to yha app me props ka naam dekr news me this.props.pagesize jaise direct apply karte hai.
+spinner ko add karne ke liye pahle to uska khud ka js file bna ke use yha import ke condition state this.state.loading && <spinner/> aise applly karte hai jisse pahle 
+query fir spinner apply ho and loading ko constructor add karke jha jha loading true karenge spinner dikhao.
+-->

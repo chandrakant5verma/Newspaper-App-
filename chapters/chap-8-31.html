@@ -1,0 +1,86 @@
+<!--  -->
+
+<!-- import React, { Component } from 'react' -->
+import { Link } from 'react-router-dom'
+
+<!-- export class Navbar extends Component {
+  static propTypes = {} -->
+
+  render() {
+    
+    return (
+        <!-- <>
+      <div>
+      <nav className="navbar navbar-expand-lg bg-light">
+      <div className="container-fluid"> -->
+        <Link className="navbar-brand" exact to="/">NewsMonky</Link>
+        <!-- <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item"> -->
+              <Link className="nav-link " aria-current="page" exact to="/">Home</Link>
+            <!-- </li> -->
+           
+            <li><Link className="nav-link" exact to="/business">Business</Link></li> 
+             <li><Link className="nav-link" exact to="/entertainment">Entertainment</Link></li>
+            <li> <Link className="nav-link" exact to="/general">General</Link></li>
+            <li> <Link className="nav-link" exact to="/health">Health</Link></li>
+            <li> <Link className="nav-link" exact to="/science">Science</Link></li>
+            <li> <Link className="nav-link" exact to="/sports">Sports</Link></li>
+            <li> <Link className="nav-link" exact to="/technology">Technology</Link></li>
+          <!-- </ul>
+        </div>
+      </div>
+    </nav>
+    </div>
+    </>
+    )
+  }
+} -->
+
+export default Navbar
+<!--  -->
+
+<!-- import './App.css';
+
+import React, { Component } from 'react'
+import Navbar from './component/Navbar';
+import News from './component/News'; -->
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+
+<!-- 
+export default class App extends Component {
+
+ 
+  render() {
+    return (
+      <div> -->
+      <!-- <Router>
+      <Navbar/>
+       -->
+      <Routes>
+      <Route path="/" element={<News key={"general"} pagesize = {5} country ={"in"} category={"general"}/>}/>
+      <Route path="/entertainment" element = {<News key={"entertainment"} pagesize = {5} country ={"in"} category={"entertainment"}/>}/>
+      <Route path="/business" element = {<News key={"business"} pagesize = {5} country ={"in"} category={"business"}/>}/>
+      <Route path="/health" element = {<News key={"health"} pagesize = {5} country ={"in"} category={"health"}/>}/>
+      <Route path="/science" element = {<News key={"science"} pagesize = {5} country ={"in"} category={"science"}/>}/>
+      <Route path="/sports" element = {<News key={"sports"} pagesize = {5} country ={"in"} category={"sports"}/>}/>
+      <Route path="/technology" element = {<News key={"technology"} pagesize = {5} country ={"in"} category={"technology"}/>}/>
+    </Routes>
+      </Router>
+      <!-- </div>
+    )
+  }
+} -->
+
+<!--  
+sikha = hum kabhi bhi news ka navbar ke btns ya links ke saath direct relation nhi baidha sakte so kya karte hai jb bhi link click hoga 
+to upper address badlega to us address route ko react router dom ke help se fetch kr uske hone pr chizo ko change kane ka kaam karte hai by route system yha
+path pr elemnt active hoga and usse usme lage props ko acces kr payenge.
+-->

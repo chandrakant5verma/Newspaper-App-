@@ -1,0 +1,83 @@
+<!-- new.js changess -->
+<!-- 
+import React, { Component } from "react";
+import NewsItem from "./NewsItem";
+
+export class News extends Component {
+  articles = [ -->
+    {
+      
+      
+      
+      
+      <!-- {
+      "source": {
+      "id": null,
+      "name": "The Guardian"
+      },
+      "author": "Guardian staff reporter",
+      "title": "Saleh insists Zach Wilson’s Jets career is ‘not over’ as he benches misfiring QB - The Guardian",
+      "description": "Zach Wilson has gone from being the future of the New York Jets franchise to an underachieving benchwarmer",
+      "url": "https://www.theguardian.com/sport/2022/nov/23/zach-wilson-new-york-jets-benched-mike-white-nfl-football",
+      "urlToImage": "https://i.guim.co.uk/img/media/ab249de9b439457daa17693f83b85906cfc1e094/0_58_6000_3600/master/6000.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=344967cba9770bca7867d90f8c6a8cac",
+      "publishedAt": "2022-11-23T20:12:00Z",
+      "content": "Zach Wilson has gone from being the future of the New York Jets franchise to an underachieving benchwarmer.\r\nCoach Robert Saleh announced the decision on Wednesday to sit Wilson and replace him with … [+4650 chars]"
+      },
+      -->
+      
+      
+  ]
+  <!-- constructor(){
+    super();
+    console.log("console me agar 3 bar ye print hua mtlab yha 3 cards me hai.")
+    this.state ={ articles:this.articles,
+      <!-- to show spinnners -->
+                  <!-- loading : false --> -->
+  }
+  }
+
+  <!-- render() {
+    return (
+      <div className="container my-3">
+        <h2>NewsMonkey-Top headlineS</h2>
+        <div className="row"> -->
+        {this.state.articles.map((element) =>{
+          console.log(element);
+        return  <div className="col-md-4" key={element.url}>
+            <NewsItem title={element.title.slice(0,45)} description = {element.description} imageUrl = {element.urlToImage} NewsUrl={element.url}/>
+          </div>
+        }) 
+
+<!-- export default News; -->
+
+
+
+<!--change 2 newsitem.js -->
+
+<!-- import React, { Component } from 'react'
+
+export class NewsItem extends Component {
+  static propTypes = {} -->
+
+  render() {
+     let {title,description,imageUrl,NewsUrl} = this.props;
+    return (
+      <!-- <div className='my-3'>
+      <div className="card" style={{width: "18rem"}}> -->
+  <img src={imageUrl} className="card-img-top" alt="..."/>
+  <div className="card-body">
+    <h5 className="card-title">{title}...</h5>
+    <p className="card-text">{description}...</p>
+    <a href={NewsUrl} className="btn btn-sm btn-primary" target="_blank">Read more</a>
+  <!-- </div>
+</div>
+      </div>
+    )
+  } 
+}
+
+export default NewsItem -->
+
+<!-- sikha 
+  mapping karna sikha.
+-->

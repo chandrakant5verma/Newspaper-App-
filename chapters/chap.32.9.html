@@ -1,0 +1,164 @@
+<!--  -->
+<!-- import React, { Component } from 'react'
+
+export class NewsItem extends Component {
+  static propTypes = {}
+
+  render() { -->
+     let {title,description,imageUrl,NewsUrl,author,date,source} = this.props;
+    <!-- return (
+      <div className='my-3'>
+      <div className="card" >
+  <img src={!imageUrl?"https://feeds.abplive.com/onecms/images/uploaded-images/2022/11/24/6547ff94c98f4dd7535fef7798d7c0031669301536984177_original.jpg?impolicy=abp_cdn&imwidth=1200&imheight=628":imageUrl} className="card-img-top" alt="..."/>
+  <div className="card-body">
+   -->
+    <h5 className="card-title">{title}
+    <h6>Example heading <span class="badge bg-success">New</span></h6>...</h5>
+    <p className="card-text">{description}...</p>
+    <p class="card-text"><small class="text-muted">by {author} on {new Date(date).toDateString()}</small></p>
+    <!-- <a rel='noreferrer' href={NewsUrl} className="btn btn-sm btn-warning" target="_blank">Read more</a>
+  </div>
+</div>
+      </div>
+    ) -->
+  <!-- } 
+}
+
+export default NewsItem -->
+
+<!--  -->
+<!-- import React, { Component } from "react";
+import NewsItem from "./NewsItem";
+import Spinner from "./Spinner";
+import PropTypes from 'prop-types'
+
+export class News extends Component {
+  static defaultProps = {
+    country: 'in',
+    pagesize:5
+    
+  }
+  static propTypes = {
+    name: PropTypes.string,
+    pagesize:PropTypes.number,
+    category:PropTypes.string
+  }
+
+  constructor() {
+    super();
+    console.log("console me agar 3 bar ye print hua mtlab yha 3 cards me hai.");
+    this.state = { articles: this.articles, loading: false, page: 1 };
+  }
+
+  async componentDidMount() {
+    try {
+      let url =
+        `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=7a49bfdf67074403b672e06c31ba2dad&pagesize=${this.props.pagesize}`;
+        this.setState({Loading:true});
+      let data = await fetch(url);
+      let parsedData = await data.json();
+
+      console.log(parsedData + " hoooooo");
+      this.setState({
+        articles: parsedData.articles,
+        totalresult: parsedData.totalResults ,
+        Loading:false
+      });
+    } catch (e) {
+      console.log("something got wrong");
+    }
+  }
+
+  handlePrevClick = async () => {
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=7a49bfdf67074403b672e06c31ba2dad&page=${
+      this.state.page - 1
+    }&pagesize=${this.props.pagesize}`;
+    this.setState({Loading:true})
+    let data = await fetch(url);
+    let parsedData = await data.json();
+
+    console.log(parsedData + " hoooooo");
+
+    this.setState({
+      page: this.state.page - 1,
+      articles: parsedData.articles,
+      Loading:false
+      
+    });
+  };
+
+  handleNextClick = async () => {
+    if (this.state.page + 1 > Math.ceil(this.state.totalresult / this.props.pagesize)) {
+    } else {
+      let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=7a49bfdf67074403b672e06c31ba2dad&page=${
+        this.state.page + 1
+      }&pagesize=${this.props.pagesize}`;
+      this.setState({Loading:true});
+      let data = await fetch(url);
+      let parsedData = await data.json();
+
+      console.log(parsedData + " hoooooo");
+
+      this.setState({
+        page: this.state.page + 1,
+        articles: parsedData.articles,
+        Loading:false
+       
+      });
+    }
+  }; -->
+
+  <!-- render() {
+    return (
+      <div className="container my-3">
+        <h2 className="text-center">NewsMonkey-Top headlineS</h2>
+        {this.state.Loading && <Spinner />}
+        <div className="row">
+          {!this.state.Loading && this.state.articles.map((element) => {
+            console.log(element);
+            return (
+              <div className="col-md-4" key={element.url}>
+                <NewsItem
+                  title={element.title ? element.title.slice(0, 45) : ""}
+                  description={
+                    element.description ? element.description.slice(0, 80) : ""
+                  }
+                  imageUrl={element.urlToImage}
+                  NewsUrl={element.url} -->
+                  author = {!element.author?"Unkown":element.author}
+                  date = {element.publishedAt}
+                  source = {element.source}
+                <!-- />
+              </div>
+            );
+          })}
+        </div>
+        <div className="d-flex justify-content-between">
+          <button
+            disabled={this.state.page <= 1}
+            type="button"
+            onClick={this.handlePrevClick}
+            className="btn btn-primary"
+          >
+            {" "}
+            &larr; Previous -->
+          <!-- </button>
+          <button
+            type="button"
+            onClick={this.handleNextClick}
+            className="btn btn-primary"
+            disabled = {this.state.page + 1 > Math.ceil(this.state.totalresult / this.props.pagesize)}
+          >
+            Next &rarr;{" "}
+          </button>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default News; -->
+<!-- 
+  yha author and date ko add kiya hai pr main baat jb hum this.static defaultprops {} add kar3t the vaise hi agaer apply na ho rha ho props to let {} = this.props karke
+  bhi add kr sakte hai.
+-->
